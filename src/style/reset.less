@@ -1,0 +1,44 @@
+body,ol,ul,li,span,h1,h2,h3,h4,h5,h6,p,th,td,dl,dd,form,fieldset,legend,input,textarea,select{margin:0;padding:0;}
+*{-webkit-tap-highlight-color:transparent;}
+body{font: .35rem/24px "微软雅黑","Arial Narrow",HELVETICA;-webkit-text-size-adjust:100%;}
+h1,h2,h3,h4,h5,h6{font-size: inherit;}
+a{text-decoration: none;color: inherit;}
+em{font-style:normal}
+li{list-style:none}
+button,input{outline: none;}
+button[disabled]{color: #888;background-color: #eee;}
+img{border:0;vertical-align:middle;max-width: 100%;max-height: 100%}
+table{border-collapse:collapse;border-spacing:0}
+article,div,span,section,header,footer,figure,nav,ul,li{box-sizing: border-box;}
+p{word-wrap:break-word}
+
+
+@media screen and (min-width:440px) {
+	::-webkit-scrollbar{
+	    width: 8px;
+	    height: 8px;
+	    background-color: rgba(255,255,255,0);
+	}
+	::-webkit-scrollbar-track{
+	    box-shadow: inset 0 0 3px rgba(0,0,0,.3);
+	    border-radius: 12px;
+	    background-color: #F5F5F5;
+	}
+	:hover::-webkit-scrollbar-thumb{
+		background-color: rgba(17,149,219,0.5);
+	}
+	::-webkit-scrollbar-thumb{
+	    border-radius: 5px;
+	    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	    background-color: rgba(17,149,219,0.3);
+	    /*background-color: rgba(0,0,0,0.3);*/
+	}
+	::-webkit-scrollbar-thumb:window-inactive {
+		background-color: rgba(17,149,219,0.1);
+	}
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+      -webkit-appearance: none !important;
+      margin: 0;
+  }
+}
