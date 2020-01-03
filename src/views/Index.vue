@@ -1,5 +1,6 @@
 <template>
 	<section class="index-page">
+		
 		<!-- 轮播图 -->
 		<cube-slide ref="slide" class="index-banner" :data="items" @change="changePage">
 		  <cube-slide-item v-for="(item, index) in items" :key="index" @click.native="clickHandler(item, index)">
@@ -8,6 +9,7 @@
 		    </a>
 		  </cube-slide-item>
 		</cube-slide>
+		
 		<!-- 滚动分类 -->
 		<cube-slide ref="slideLists" class='navList' :auto-play="false" :data="lists" @change="changePage">
 		  <cube-slide-item v-for="(list, index) in lists" :key="index">
