@@ -1,7 +1,7 @@
 
-
+//查看===================
 git status //查看状态
-git add . //上传全部文件
+git add . //本地仓库添加 全部文件
 git commit -m '备注信息' //commit是提交,-m是备注信息
 git branch login //创建分支,分支名是login
 git checkout login //切换到login分支
