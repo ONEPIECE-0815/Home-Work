@@ -11,7 +11,8 @@ const routes = [
     name: 'home',
     // component: Home,
 		// redirect:'/user-login', //重定向:当地址为空重定向到login
-		redirect:'/location-list', //重定向:当地址为空重定向到login
+		// redirect:'/location-list', //重定向:当地址为空重定向到login
+		redirect:'/addNew-address', //重定向:当地址为空重定向到login
 		meta: {title: 'home'}
   },
   {

@@ -1,6 +1,7 @@
 const state = {
   token:'',
 	addressArr:JSON.parse(localStorage.getItem('addressArr'))||[],
+	defaultAddress:JSON.parse(localStorage.getItem('defaultAddress'))||0,
 }
 
 // 以计算属性形式返回
@@ -20,6 +21,9 @@ const mutations = {
 	},
 	setNavIndex(state,navIndex){
 		state.navIndex = navIndex;
+	},
+	setDefaultAddress(state,index){
+		state.defaultAddress = index;
 	},
 	// 添加收货地址
 	

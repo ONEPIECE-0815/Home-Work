@@ -1,6 +1,6 @@
 <template>
 	<article class="new-address">
-		add
+		
 	</article>
 </template>
 

@@ -31,7 +31,7 @@
 		name:'location-list',
 		data(){
 			return{
-				defaultAddress:0,
+				// defaultAddress:0,
 				addressArr:[
 					{
 						personName:'张三',
@@ -64,8 +64,9 @@
 				}
 			},
 			setAddress(index){
-				if(this.defaultAddress!=index&&window.confirm('是否更改默认地址?')){
-					this.defaultAddress=index;
+				if(window.confirm('是否更改默认地址?')){
+					this.$store.commit('user/setDefaultAddress',index)
+					// this.defaultAddress=index;
 					// setTimeout(()=>this.$router.go(-1),500)
 				}
 			}
@@ -73,6 +74,7 @@
 		computed:{
 			...mapState({  // 映射state数据
 				locationArr:state=>state.user.addressArr,
+				defaultAddress:state=>state.user.defaultAddress,
 			})
 		},
 		created () {

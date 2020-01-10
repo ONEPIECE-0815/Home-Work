@@ -21,6 +21,7 @@ let store = new Vuex.Store({
 store.subscribe((mutations,state)=>{
 	localStorage.setItem('cartArry',JSON.stringify(state.cart.cartArry))
 	localStorage.setItem('addressArr',JSON.stringify(state.user.addressArr))
+	localStorage.setItem('defaultAddress',JSON.stringify(state.user.defaultAddress))
 })
 
 export default store
