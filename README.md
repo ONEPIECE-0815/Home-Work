@@ -1,4 +1,4 @@
-# zk-demo
+# ms-demo
 
 ## Project setup
 ```
