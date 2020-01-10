@@ -108,7 +108,7 @@
 				const dom = this.ball.el; // addToCart方法已赋值
 				// console.log(dom);
 				const rect = dom.getBoundingClientRect()  //获取点击dom的位置
-				// console.log(rect);
+				console.log(rect);
 				const x = rect.left-window.innerWidth*0.7
 				const y = -(window.innerHeight-rect.top)
 				// console.log(x,y)

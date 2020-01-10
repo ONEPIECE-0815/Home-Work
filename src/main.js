@@ -9,7 +9,6 @@ import 'amfe-flexible'
 import setaxios from './request/setaxios'
 setaxios()
 
-
 Vue.config.productionTip = false
 
 Vue.prototype.$http = axios

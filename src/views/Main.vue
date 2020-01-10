@@ -40,10 +40,10 @@
 					label: '分类',
 					icon: 'cubeic-tag'
 				}, 
-				// {
-				// 	label: '搜索',
-				// 	icon: 'cubeic-search'
-				// }, 
+				{
+					label: '搜索',
+					icon: 'cubeic-search'
+				}, 
 				{
 					label: '购物车',
 					icon: 'cubeic-mall'
@@ -71,9 +71,9 @@
 					case '分类':
 					this.$router.push({path:'/main/list'});
 					break;
-					// case '搜索':
-					// this.$router.push({path:'/main/search'});
-					// break;
+					case '搜索':
+					this.$router.push({path:'/main/search'});
+					break;
 					case '购物车':
 					this.$router.push({path:'/main/cart'});
 					break;
@@ -91,9 +91,9 @@
 				case '/main/list':
 				this.selectedLabelDefault = '分类';
 				break;
-				// case '/main/search':
-				// this.selectedLabelDefault = '搜索';
-				// break;
+				case '/main/search':
+				this.selectedLabelDefault = '搜索';
+				break;
 				case '/main/cart':
 				this.selectedLabelDefault = '购物车';
 				break;
@@ -144,7 +144,7 @@
 		font-size: 12px;
 		position: fixed;
 		bottom: 33px;
-		right: 30%;
+		right: 23%;
 		z-index: 1000;
 		background-color: #e22222;
 		color: #fff;
