@@ -1,22 +1,32 @@
+@primaryColor:#1195db;
+
 //常用设置==========================
-.wh(@w:100%;@h:100%){width: @w;height: @h;}
+.wh(@w:100%;@h:100%;@lh:inherit){width: @w;height: @h;line-height: @lh;}
 .radius(@radius:5px){border-radius: @radius}
 .margin-Tb(@tb:.2rem;@lr:auto){margin: @tb @lr}
 .maxWh(@w:100%;@h:100%){max-width: @w;max-height: @h;}
-.border(@bdcolor :#888;@w :1px;@style:solid;){border: @w @style @bdcolor}
 .shadow(@shadowBlur:10px;@x_shadow:0;@y_shadow:0;@shadowColor:rgba(0,0,0,.6);){box-shadow: @x_shadow @y_shadow @shadowBlur @shadowColor;}
 .blockPadding(@blockPaddTb:2%;@blockPaddLr:3%;){padding: @blockPaddTb @blockPaddLr;}
 .lh(@lh:.5rem){line-height: @lh;}
 .t-a(@align:center;){text-align: @align;}
 .overfH{overflow: hidden}
 .overfA{overflow: auto}
-.border(@bdcolor :#888;@bdwidth :1px;@bdsty:solid;){border: @bdwidth @bdsty @bdcolor}
+.border(@c:rgba(0,0,0,.2);@w :1px;@s:solid;){border: @w @s @c}
 .border-B(@width:1px;@style:solid;@color:rgba(0,0,0,.2);){border-bottom: @width @style @color;}
 .border-T(@width:1px;@style:solid;@color:rgba(0,0,0,.2);){border-top: @width @style @color;}
 .border-L(@width:1px;@style:solid;@color:rgba(0,0,0,.2);){border-left: @width @style @color;}
 .border-R(@width:1px;@style:solid;@color:rgba(0,0,0,.2);){border-right: @width @style @color;}
+.border-W(@tb:1px;@lr:1px){border-width: @tb @lr}
 .red-text{color: #e22222;}.gray{color: #6f6b6b;}.gray-text{color: #888;}.primaryColor-text{color: #1195DB;}.white_color{color: #fff;}.golden_color{color: #FFD700;}.wx_color{color: #09bb07;}
 .wx-primaryColor{color: #09bb07;}
+.primary-btnColor{
+  background-color:@primaryColor;color: #fff;
+  &:active{background-color:#0e85c3;color: #eee;}
+}
+.red-btn{
+  color: #fff !important;background-color: #E22222;
+  &:active{color: #eee !important;background-color: #ba1b1b !important;}
+}
 
 //布局============================
 

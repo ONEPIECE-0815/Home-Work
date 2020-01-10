@@ -24,7 +24,7 @@ const mutations = {
 	toCart(state,tag){
 		let goods = state.cartArry.find(val=>val.title==tag.label)
 		if(goods){
-			console.log(goods);
+			// console.log(goods);
 			goods.cartCount += 1;
 		}else{
 			state.cartArry.push({title:tag.label,cartCount:1})

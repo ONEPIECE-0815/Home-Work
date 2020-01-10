@@ -106,12 +106,12 @@
 				// 让小球移动到点击位置
 				// 获取点击位置
 				const dom = this.ball.el; // addToCart方法已赋值
-				console.log(dom);
+				// console.log(dom);
 				const rect = dom.getBoundingClientRect()  //获取点击dom的位置
-				console.log(rect);
+				// console.log(rect);
 				const x = rect.left-window.innerWidth*0.7
 				const y = -(window.innerHeight-rect.top)
-				console.log(x,y)
+				// console.log(x,y)
 				el.style.display = 'block'
 				el.style.transform = `translate3d(0,${y}px,0)`
 				const inner = el.querySelector('.inner')

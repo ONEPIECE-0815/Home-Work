@@ -39,10 +39,12 @@
 				}, {
 					label: '分类',
 					icon: 'cubeic-tag'
-				}, {
-					label: '搜索',
-					icon: 'cubeic-search'
-				}, {
+				}, 
+				// {
+				// 	label: '搜索',
+				// 	icon: 'cubeic-search'
+				// }, 
+				{
 					label: '购物车',
 					icon: 'cubeic-mall'
 				}, {
@@ -142,7 +144,7 @@
 		font-size: 12px;
 		position: fixed;
 		bottom: 33px;
-		right: 23%;
+		right: 30%;
 		z-index: 1000;
 		background-color: #e22222;
 		color: #fff;
