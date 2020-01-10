@@ -1,7 +1,8 @@
 const state = {
   token:'',
 	addressArr:JSON.parse(localStorage.getItem('addressArr'))||[],
-	defaultAddress:JSON.parse(localStorage.getItem('defaultAddress'))||0,
+	defaultAddress:{},
+	currentIndex:JSON.parse(localStorage.getItem('defaultAddress'))||0,
 }
 
 // 以计算属性形式返回
@@ -11,7 +12,14 @@ const getters = {
 
 // 异步获取值后commit mutations更改值
 const actions = {
-  
+  addNewAddress(commit,model){
+		commit.
+		// localStorage.setItem('defaultAddress',JSON.stringify(state.user.defaultAddress))
+	},
+	getAddressList(commit){
+		let tmpArr=JSON.parse(localStorage.getItem('addressArr'));
+	},
+	
 }
 
 // 更改值
@@ -19,12 +27,13 @@ const mutations = {
   setToken(state,token){
 		state.token = token;
 	},
-	setNavIndex(state,navIndex){
-		state.navIndex = navIndex;
-	},
+	// setNavIndex(state,navIndex){
+	// 	state.navIndex = navIndex;
+	// },
 	setDefaultAddress(state,index){
-		state.defaultAddress = index;
+		state.currentIndex = index;
 	},
+	
 	// 添加收货地址
 	
 }

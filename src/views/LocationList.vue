@@ -78,7 +78,7 @@
 			})
 		},
 		created () {
-			// this.confirmToAdd();
+			this.confirmToAdd();
 		},
 	}
 </script>
