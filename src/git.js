@@ -52,7 +52,9 @@ Git常用操作命令收集：
 查看远程分支：$ git branch -r
 创建本地分支：$ git branch [name] ----注意新分支创建后不会自动切换为当前分支
 切换分支：$ git checkout [name]
+
 创建新分支并立即切换到新分支：$ git checkout -b [name]
+
 删除分支：$ git branch -d [name] ---- -d选项只能删除已经参与了合并的分支，对于未有合并的分支是无法删除的。如果想强制删除一个分支，可以使用-D选项
 合并分支：$ git merge [name] ----将名称为[name]的分支与当前分支合并
 创建远程分支(本地分支push到远程)：$ git push origin [name]
@@ -128,3 +130,16 @@ cd;cd foo2
 git remote add web [某user]@[某ip]:/var/www/foo.git/
 
 git pull web master
+
+
+$ git push origin
+
+上面命令表示，将当前分支推送到origin主机的对应分支。 
+
+如果当前分支只有一个追踪分支，那么主机名都可以省略。 
+
+$ git push 如果当前分支与多个主机存在追踪关系，那么这个时候-u选项会指定一个默认主机，这样后面就可以不加任何参数使用git push。
+
+$ git push -u origin master 上面命令将本地的master分支推送到origin主机，同时指定origin为默认主机，后面就可以不加任何参数使用git push了。
+
+不带任何参数的git push，默认只推送当前分支，这叫做simple方式。此外，还有一种matching方式，会推送所有有对应的远程分支的本地分支。Git 2.0版本之前，默认采用matching方法，现在改为默认采用simple方式。
