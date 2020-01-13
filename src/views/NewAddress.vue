@@ -2,21 +2,41 @@
 	<article class="new-formattedAddress">
 		<!-- <el-amap class="amap-box" :vid="'amap-vue'"></el-amap> -->
 		<section id="container"></section>
+		<section>
+			<div class="user-info">
+				<span>收件地址:</span>
+				<input type="text" v-model="addressInfo.formattedAddress">
+			</div>
+			<div class="user-info">
+				<span>收件人:</span>
+				<input type="text" v-model="addressInfo.personName">
+			</div>
+			<div class="user-info">
+				<span>联系电话:</span>
+				<input type="text" v-model="addressInfo.contactNum">
+			</div>
+			<button @click="submitAddress()">确认添加</button>
+		</section>
 	</article>
 </template>
 
 <script>
-	import AMap from 'AMap'
+	// import AMap from 'AMap'
 	export default {
 		name: 'new-formattedAddress',
 		data() {
 			return {
 				location: null,
 				map: null,
-				formattedAddress: '',
+				addressInfo: {
+					formattedAddress: '',
+					personName: '',
+					contactNum: '',
+				},
 				formattedAddressModel: null,
 				marker: null,
-				mapCenter:null,
+				mapCenter: null,
+				startIcon: null,
 			};
 		},
 		created() {
@@ -25,6 +45,7 @@
 		mounted() {
 			this.$nextTick(() => {
 				this.initAmap();
+				this.createIcon();
 				this.setMapMoveListener();
 			})
 		},
@@ -32,7 +53,7 @@
 			initAmap(location) {
 				this.map = new AMap.Map('container', {
 					resizeEnable: true, //是否监控地图容器尺寸变化
-					zoom: 11, //初始化地图层级
+					zoom: 9, //初始化地图层级
 					// center: [116.397428, 39.90923], //初始化地图中心点
 				});
 				this.getBrowserLocation();
@@ -49,7 +70,7 @@
 					});
 					this.map.addControl(geolocation);
 					geolocation.getCurrentPosition((status, result) => {
-						console.log(result);
+						// console.log(result);
 						if (status == 'complete') {
 							this.location = result.position;
 							// console.log(this.location);
@@ -61,29 +82,41 @@
 					});
 				});
 			},
-			
-			getMapCenter(map){
-				this.mapCenter=map.getCenter();
-				console.log(this.mapCenter.lng,this.mapCenter.lat);
-				this.setMark(this.mapCenter);
+			resetMapCenter(map) {
+				this.mapCenter = map.getCenter();
 			},
-			setMark(center){
-				console.log(this.marker);
-				this.marker.position = [center.lng,center.lat];
+			createIcon() {
+				this.startIcon = new AMap.Icon({
+					// 图标尺寸
+					size: new AMap.Size(25, 34),
+					// 图标的取图地址
+					image: '//a.amap.com/jsapi_demos/static/demo-center/icons/dir-marker.png',
+					// 图标所用图片大小
+					imageSize: new AMap.Size(135, 40),
+					// 图标取图偏移量
+					imageOffset: new AMap.Pixel(-51, -3)
+				});
 			},
 			addMark(location) {
 				this.marker = new AMap.Marker({ // 实例化点标记
-					icon: "//a.amap.com/jsapi_demos/static/demo-center/icons/poi-marker-default.png",
-					position: [location.lng,location.lat],
-					offset: new AMap.Pixel(-13, -30)
+					icon: this.startIcon,
+					// icon: "//a.amap.com/jsapi_demos/static/demo-center/icons/poi-marker-default.png",
+					position: [location.lng, location.lat],
+					offset: new AMap.Pixel(-13, -30),
 				});
 				this.marker.setMap(this.map);
 			},
 			setMapMoveListener() {
-				this.map.on('moveend',()=>{
-					this.getMapCenter(this.map);
+				this.map.on('movestart', () => {
+					this.map.remove(this.marker);
+				})
+				this.map.on('moveend', () => {
+					this.resetMapCenter(this.map);
+					this.addMark(this.mapCenter);
+					this.convertLocationToAddress(this.mapCenter);
 				})
 			},
+
 			convertLocationToAddress(location) {
 				let geocoder = new AMap.Geocoder({
 					city: "010", //城市设为北京，默认：“全国”
@@ -91,17 +124,23 @@
 				});
 				geocoder.getAddress(location, (status, result) => {
 					if (status === 'complete' && result.regeocode) {
-						this.formattedAddress = result.regeocode.formattedAddress;
-						alert(this.formattedAddress);
-						// document.getElementById('formattedAddress').value = formattedAddress;
+						this.addressInfo.formattedAddress = result.regeocode.formattedAddress;
 					} else {
 						log.error('根据经纬度查询地址失败')
 					}
 				});
 			},
-			updateAddress() {}
 
-
+			submitAddress() {
+				if (this.addressInfo.formattedAddress && this.addressInfo.personName && this.addressInfo.contactNum) {
+					if (window.confirm('地址信息无误请确认,提交后返回上一页')) {
+						this.$store.commit('user/addNewAddress', this.addressInfo);
+						this.$router.go(-1);
+					}
+				} else {
+					alert('信息尚未填写完整,请填写完整后提交!');
+				}
+			}
 		}
 	}
 </script>
@@ -110,6 +149,6 @@
 	@import '../style/public';
 
 	#container {
-		.wh(100%, 8rem);
+		.wh(100%, 6rem);
 	}
 </style>
