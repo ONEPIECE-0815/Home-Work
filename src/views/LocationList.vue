@@ -7,7 +7,7 @@
 		</ul> -->
 		<ul class="list-wrap">
 			<li v-for="(item,index) in addressArr" :key="index" @click="setAddress(index)">
-				<i :class="['iconfont',defaultAddress==index?'icon-xuanze':'icon-xuanze1']"></i>
+				<i :class="['iconfont',currentAddressIndex==index?'icon-xuanze':'icon-xuanze1']"></i>
 				<div class='list-content'>
 					<p><span>{{item.personName}}</span><span>{{item.contact}}</span></p>
 					<p><span>{{item.address}}</span></p>
@@ -65,7 +65,7 @@
 			},
 			setAddress(index){
 				if(window.confirm('是否更改默认地址?')){
-					this.$store.commit('user/setDefaultAddress',index)
+					this.$store.commit('user/setCurrentAddressIndex',index)
 					// this.defaultAddress=index;
 					// setTimeout(()=>this.$router.go(-1),500)
 				}
@@ -74,7 +74,7 @@
 		computed:{
 			...mapState({  // 映射state数据
 				locationArr:state=>state.user.addressArr,
-				defaultAddress:state=>state.user.defaultAddress,
+				currentAddressIndex:state=>state.user.currentAddressIndex,
 			})
 		},
 		created () {

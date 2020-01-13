@@ -13,9 +13,7 @@ setaxios()
 // Vue.use(AMap)
 // AMap.initAMapApiLoader({
 //   key: 'd0f2a5e3450833930987f7c3274863f0',
-//   plugin: ['AMap.Autocomplete', 'AMap.PlaceSearch', 'AMap.Scale', 'AMap.OverView',
-//     'AMap.ToolBar', 'AMap.MapType', 'AMap.PolyEditor',
-//     'AMap.CircleEditor', 'AMap.Geolocation']
+//   plugin: ['AMap.Geocoder','AMap.Geolocation','AMap.Autocomplete','AMap.Driving']
 // });
 
 Vue.config.productionTip = false
