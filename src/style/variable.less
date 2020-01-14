@@ -2,9 +2,12 @@
 
 //常用设置==========================
 .wh(@w:100%;@h:100%;@lh:inherit){width: @w;height: @h;line-height: @lh;}
+.maxWh(@w:100%;@h:100%){max-width: @w;max-height: @h;}
 .radius(@radius:5px){border-radius: @radius}
 .margin-Tb(@tb:.2rem;@lr:auto){margin: @tb @lr}
-.maxWh(@w:100%;@h:100%){max-width: @w;max-height: @h;}
+.margin-t-b(@t:0;@b:0;@lr:auto;){margin: @t @lr @b}
+.margin-L(@l:0;){margin-left: @l;}
+.margin-R(@r:0;){margin-right: @r;}
 .shadow(@shadowBlur:10px;@x_shadow:0;@y_shadow:0;@shadowColor:rgba(0,0,0,.6);){box-shadow: @x_shadow @y_shadow @shadowBlur @shadowColor;}
 .blockPadding(@blockPaddTb:2%;@blockPaddLr:3%;){padding: @blockPaddTb @blockPaddLr;}
 .lh(@lh:.5rem){line-height: @lh;}

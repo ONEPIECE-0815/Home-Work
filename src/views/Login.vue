@@ -1,12 +1,14 @@
 <template>
   <article class="login-page">
 		
-		<!-- <div id="nav" v-if="this.$route.path==='/user-login'">
-		  <router-link to="/user-login">登录</router-link> |
-		  <router-link to="/user-register">注册</router-link>
-		</div> -->
-		
 		<img src="../../public/img/timg.jpg" alt="">
+		
+		<div class="toggle">
+			<!-- <span v-if="this.$route.path=='/user-register'" @click="goToLogin">已有账号,立即登录</span> -->
+			<span v-if="this.$route.path=='/user-login'" @click="goToRegister">还未注册,我要注册
+				<i class="iconfont icon-iconzhengli_tiaozhuan primaryColor-text"></i>
+			</span>
+		</div>
 		
 		<cube-form
 		@submit="submitHandler"
@@ -113,6 +115,9 @@ export default {
 				console.log(err);
 			}
 		},
+		goToRegister(){
+			this.$router.push({path:'/user-register'});
+		}
 	}
 }
 

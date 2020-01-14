@@ -42,7 +42,7 @@
 					path: '/addNew-address',
 				})
 			},
-			confirmToAdd() {
+			confirmToNewAddress() {
 				let address = JSON.parse(localStorage.getItem('addressArr'));
 				if (address.length == 0) {
 					if (window.confirm('暂无地址信息!是否去添加新地址?')) {
@@ -83,7 +83,7 @@
 			})
 		},
 		created() {
-			this.confirmToAdd();
+			this.confirmToNewAddress();
 		},
 	}
 </script>

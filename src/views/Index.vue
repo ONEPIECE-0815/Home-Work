@@ -15,7 +15,7 @@
 		  <cube-slide-item v-for="(list, index) in lists" :key="index">
 				<ul>
 					<li v-for="(item,index) in list" :key="index">
-						<a :href="item.url">
+						<a href="javascript:void(0)">
 							<img :src="item.image" alt="">
 							<p>{{item.label}}</p>
 						</a>

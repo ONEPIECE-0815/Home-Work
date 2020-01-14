@@ -2,20 +2,20 @@
 	<article class="new-formattedAddress">
 		<!-- <el-amap class="amap-box" :vid="'amap-vue'"></el-amap> -->
 		<section id="container"></section>
-		<section>
-			<div class="user-info">
-				<span>收件地址:</span>
+		<section class="info-wrap">
+			<div class="info-item">
+				<span>收件地址</span>
 				<input type="text" v-model="addressInfo.formattedAddress">
 			</div>
-			<div class="user-info">
-				<span>收件人:</span>
+			<div class="info-item">
+				<span>收件人</span>
 				<input type="text" v-model="addressInfo.personName">
 			</div>
-			<div class="user-info">
-				<span>联系电话:</span>
+			<div class="info-item">
+				<span>联系电话</span>
 				<input type="text" v-model="addressInfo.contactNum">
 			</div>
-			<button @click="submitAddress()">确认添加</button>
+			<button class="btn big" @click="submitAddress()">确认添加</button>
 		</section>
 	</article>
 </template>
@@ -149,6 +149,36 @@
 	@import '../style/public';
 
 	#container {
-		.wh(100%, 6rem);
+		.wh(100%, 10rem);
+		.shadow;
+	}
+	.info-wrap{
+		.margin-t-b(.5rem);
+		text-align: center;
+	}
+	.info-item{
+		.wh(90%,auto);
+		.lh(.8rem);
+		.border(#888);
+		.radius(4px);
+		.flex-wrap(initial,center);
+		.margin-t-b(0,.4rem);
+		font-size: .4rem;
+		&>span:first-child{
+			.flex-items(20%,0,0);
+			.border-R;
+			padding-right: 10px;
+			text-align: right;
+		}
+		input{
+			.margin-t-b(0,0,10px);
+			outline: none;
+			flex:1
+		}
+	}
+	.big{
+		.wh(90%,auto);
+		.margin-Tb();
+		.radius;
 	}
 </style>
