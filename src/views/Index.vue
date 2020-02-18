@@ -14,7 +14,7 @@
 		<cube-slide ref="slideLists" class='navList' :auto-play="false" :data="lists" @change="changePage">
 		  <cube-slide-item v-for="(list, index) in lists" :key="index">
 				<ul>
-					<li v-for="(item,index) in list" :key="index">
+					<li v-for="(item,index) in list" :key="index" @click="goToList">
 						<a href="javascript:void(0)">
 							<img :src="item.image" alt="">
 							<p>{{item.label}}</p>
@@ -42,6 +42,9 @@
 	    clickHandler(item, index) {
 	      console.log(item, index)
 	    },
+			goToList(){
+				this.$router.push({path:'/main/list'})
+			}
 	  },
 		async created() {
 			try{
@@ -49,10 +52,8 @@
 				const items = await this.$http.get('/api/banner')
 				// console.log(items);
 				this.items = items.data;
-				
 				const lists = await this.$http.get('/api/rollingList')
 				this.lists = lists.data;
-				
 			}catch(err){
 				console.log(err);
 			}

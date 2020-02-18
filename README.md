@@ -1,4 +1,4 @@
-# ms-demo
+# shoppingMall-demo
 
 ## Project setup
 ```
